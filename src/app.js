@@ -42,9 +42,9 @@ app.delete("/task", async (req, res) => {
 });
 
 app.put("/task", async (req, res) => {
-  const { id, task } = req.body;
+  const { id, task, completed } = req.body;
   try {
-    const updatedTask = await updateTask(id, task);
+    const updatedTask = await updateTask(id, task, completed);
     res.json(updatedTask);
   } catch (error) {
     console.error(error.message);
